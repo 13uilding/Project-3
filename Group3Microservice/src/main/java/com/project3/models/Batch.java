@@ -46,6 +46,7 @@ public class Batch {
 	private Trainer trainer;
 	
 
+
 	
 	
 //	@JoinColumn(name="location_id")
