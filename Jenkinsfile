@@ -2,6 +2,9 @@ pipeline {
   agent any
   stages {
     stage('Build Data') {
+      environment {
+        SPRING_PROFILES_ACTIVE = 'local'
+      }
       steps {
         sh '''cd p3backend/DataService
 chmod +x mvnw
