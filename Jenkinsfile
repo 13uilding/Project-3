@@ -14,7 +14,12 @@ chmod +x mvnw
     }
 
     stage('Build FrontEnd') {
-      agent any
+      agent {
+        docker {
+          image 'node:6-alpine'
+        }
+
+      }
       steps {
         sh '''cd p3frontend/
 npm run build'''
