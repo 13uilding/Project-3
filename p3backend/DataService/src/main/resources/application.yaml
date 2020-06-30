@@ -1,0 +1,52 @@
+
+
+spring:
+  profiles:
+    active: local
+  application:
+    name: reservoir
+server:
+  port: 1235
+  
+#SQS information
+aws:
+  accessKey: ${AWS_ACCESS_KEY_ID}
+  secretKey: ${AWS_SECRET_ACCESS_KEY}
+  region: us-east-1
+cloud:
+  aws:
+    region:
+      static: us-east-1
+    stack:
+      auto: false
+
+---
+spring:
+  profiles: local
+  datasource:
+    platform: h2
+    url: jdbc:h2:mem:project3;Mode=PostgreSQL;INIT=CREATE SCHEMA IF NOT EXISTS PROJECT3;
+    username: sa
+    password: password
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+
+---
+spring:
+  profiles: dev
+  datasource:
+    url: jdbc:postgresql://reservoir.c0vqeod3dnhi.us-east-2.rds.amazonaws.com:5432/reservoir
+    username: postgres
+    password: wasspord
+    platform: postgres
+    initialization-mode: always
+    continue-on-error: true
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        temp.use_jdbc_metadata_defaults: false
+    hibernate:
+      ddl-auto: update
+    database: postgresql
