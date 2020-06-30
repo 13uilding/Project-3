@@ -31,6 +31,7 @@ public class ConsentController {
 			return consentService.getAll();
 		}
 
+		// This is commented out in DataService
 		@CrossOrigin(origins="*")
 		@GetMapping("/consent/{trainerId}")
 	    public List<Consent> getAllReviews(@PathVariable Integer trainerId){   

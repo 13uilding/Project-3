@@ -5,10 +5,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -17,8 +13,22 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @Table(schema = "project3", name = "consent")
 public class Consent {
 
+	
 
-  @Id
+  public Consent() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+public Consent(Integer consentId, boolean isApprovedColumn, Integer batchId, Integer trainerId) {
+		super();
+		this.consentId = consentId;
+		this.isApprovedColumn = isApprovedColumn;
+		this.batchId = batchId;
+		this.trainerId = trainerId;
+	}
+
+@Id
   @Column(name = "consent_id")
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Integer consentId;
@@ -27,7 +37,6 @@ public class Consent {
   private boolean isApprovedColumn;
 
 
-  // Working
   // Changing at Nick's request
 //  @JsonIgnoreProperties({"consent", "trainers"})
 //  @ManyToOne
@@ -40,42 +49,23 @@ public class Consent {
 //  @ManyToOne
 //  @JoinColumn(name = "trainerId")
   @Column(name="trainer_id")
-
   private Integer trainerId;
 
-  public Consent() {
-    super();
+public Integer getConsentId() {
+	return consentId;
+}
 
-  }
+public void setConsentId(Integer consentId) {
+	this.consentId = consentId;
+}
 
-  public Integer getConsentId() {
-    return consentId;
-  }
+public boolean isApprovedColumn() {
+	return isApprovedColumn;
+}
 
-  public void setConsentId(Integer consentId) {
-    this.consentId = consentId;
-  }
-  
-  
-
-
-  public boolean isApproved() {
-
-    return isApproved;
-  }
-
-  public void setApproved(boolean isApproved) {
-    this.isApproved = isApproved;
-  }
-
-
-  public Consent(Integer consentId, boolean isApproved, Integer batchid, Integer trainerId) {
-    super();
-    this.consentId = consentId;
-    this.isApproved = isApproved;
-    this.batchId = batchId;
-    this.trainerId = trainerId;
-  }
+public void setApprovedColumn(boolean isApprovedColumn) {
+	this.isApprovedColumn = isApprovedColumn;
+}
 
 public Integer getBatchId() {
 	return batchId;
@@ -85,41 +75,19 @@ public void setBatchId(Integer batchId) {
 	this.batchId = batchId;
 }
 
-public Integer getTrainer_id() {
+public Integer getTrainerId() {
 	return trainerId;
 }
 
-public void setTrainer_id(Integer trainerId) {
+public void setTrainerId(Integer trainerId) {
 	this.trainerId = trainerId;
 }
-
-
-public Consent(Integer consentId, boolean isApproved, Integer batchId, Integer trainerId) {
-	super();
-	this.consentId = consentId;
-	this.isApprovedColumn = isApproved;
-	this.batchId = batchId;
-	this.trainerId = trainerId;
-}
-
-
-
-  public boolean getIsApprovedColumn() {
-	return isApprovedColumn;
-}
-
-public void setIsApprovedColumn(boolean isApprovedColumn) {
-	this.isApprovedColumn = isApprovedColumn;
-}
-
-
 
 @Override
 public String toString() {
-	return "Consent [consentId=" + consentId + ", isApproved=" + isApprovedColumn + ", batchId=" + batchId + ", trainerId="
-			+ trainerId + "]";
+	return "Consent [consentId=" + consentId + ", isApprovedColumn=" + isApprovedColumn + ", batchId=" + batchId
+			+ ", trainerId=" + trainerId + "]";
 }
-
 
 
   
