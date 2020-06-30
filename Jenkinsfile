@@ -13,5 +13,13 @@ chmod +x mvnw
       }
     }
 
+    stage('Build FrontEnd') {
+      agent any
+      steps {
+        sh '''cd p3frontend/
+npm run build'''
+      }
+    }
+
   }
 }
