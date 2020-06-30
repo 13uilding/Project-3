@@ -22,6 +22,7 @@ chmod +x mvnw
       }
       steps {
         sh '''cd p3frontend/
+npm i
 npm run build'''
       }
     }
