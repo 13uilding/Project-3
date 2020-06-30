@@ -27,7 +27,6 @@ export class App extends React.Component<any, any> {
   render()
   {
     return (<Container>
-      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
       {/* <TestdateDifferenceWeeks/> */}
       <Router>
         <Navbar color='light' light expand='md'>
@@ -52,7 +51,7 @@ export class App extends React.Component<any, any> {
                   Batches
                 </NavLink>
               </NavItem>
- 
+              <NavItem>
                 <NavLink to='/in-progress' className='nav-link' activeClassName='active'>In Progress</NavLink>
               </NavItem>
               <NavItem>
